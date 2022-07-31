@@ -23,3 +23,16 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+bootBuildImage {
+    imageName = "melprobe/${project.name}"
+    publish = true
+    docker {
+        publishRegistry {
+            username = "melprobe"
+            password = dockerPw
+			url = "https://hub.docker.com/repository/docker/melprobe/chaebee"
+            email = "melprobe.com@gmail.com"
+        }
+    }
+}
